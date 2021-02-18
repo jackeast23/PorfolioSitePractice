@@ -4,24 +4,24 @@
     box-sizing: border-box;
 }
 
-/* Custom properties */
+/* Custom Properties, update these for your own design */
 
 :root {
     --ff-primary: 'Source Sans Pro', sans-serif;
     --ff-secondary: 'Source Code Pro', monospace;
-
+    
     --fw-reg: 300;
     --fw-bold: 900;
-
+    
     --clr-light: #fff;
     --clr-dark: #303030;
-    --clr-accent: #16e0bd;
-
+    --clr-accent: #EEDA31;
+    
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
-
+    
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
           0.125em 0.125em 0.25em rgba(0,0,0,.15);
 }
@@ -35,7 +35,13 @@
     }
 }
 
-/* General styles*/
+/* General styles */
+
+/* endable this to add smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 
 body {
     background: var(--clr-light);
@@ -47,7 +53,7 @@ body {
 }
 
 section {
-    padding:5em 2em;
+    padding: 5em 2em;
 }
 
 img {
@@ -97,7 +103,7 @@ h3 { font-size: var(--fs-h3) }
 
 
 .section__title {
-    margin-bottom: 0.25em;
+    margin-bottom: .25em;
 }
 
 .section__title--intro {
@@ -186,6 +192,31 @@ header {
     z-index: 1000;
 }
 
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
+
+
+
+
+
 .hamburger {
     display: block;
     position: relative;
@@ -194,12 +225,13 @@ header {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    background: var(--clr-dark);
+    background: var(--clr-accent);
     width: 2em;
     height: 3px;
     border-radius: 1em;
     transition: transform 250ms ease-in-out;
 }
+
 
 .hamburger::before,
 .hamburger::after {
@@ -213,7 +245,7 @@ header {
 .hamburger::after { bottom: 6px; }
 
 
-/* Intro section */
+/*  Intro section  */
 
 .intro {
     position: relative;
@@ -238,14 +270,14 @@ header {
             "img subtitle";
         grid-template-columns: min-content max-content;
     }
-
+    
     .intro__img {
         grid-area: img;
         min-width: 250px;
         position: relative;
         z-index: 2;
-    }
-
+    }    
+    
     .section__subtitle--intro {
         align-self: start;
         grid-column: -1 / 1;
@@ -259,7 +291,7 @@ header {
 
 
 
-/* My services section */
+/*  My services section  */
 
 .my-services {
     background-color: var(--clr-dark);
@@ -321,27 +353,27 @@ header {
     .about-me {
         display: grid;
         grid-template-columns: 1fr 200px;
-        grid-template-areas:
+        grid-template-areas: 
             "title img"
             "subtitle img"
             "text img";
         grid-column-gap: 2em;
     }
-
+    
     .section__title--about {
         grid-area: title;
     }
-
+    
     .section__subtitle--about {
         grid-column: 1 / -1;
         grid-row: 2;
         position: relative;
-        left: -2em;
-        width: calc(100% + 3em);
+        left: -1em;
+        width: calc(100% + 2em);
         padding-left: 1em;
         padding-right: calc(200px + 4em);
     }
-
+    
     .about-me__img {
         grid-area: img;
         position: relative;
@@ -349,19 +381,13 @@ header {
     }
 }
 
-/* My work */
+/* My Work */
 
 .my-work {
     background-color: var(--clr-dark);
     color: var(--clr-light);
-    text-align: center;
+    text-align: center;    
 }
-
-/* .section__subtitle--work {
-    color: var(--clr-accent);
-    font-weight: var(--fw-bold);
-    margin-bottom: 2em;
-} */
 
 .portfolio {
     display: grid;
@@ -369,14 +395,14 @@ header {
 }
 
 .portfolio__item {
-    background: var(--clr-dark);
+    background: var(--clr-accent);
     overflow: hidden;
 }
 
 .portfolio__img {
     transition: 
         transform 750ms cubic-bezier(.5, 0, .5, 1),
-        opactiy 250ms linear;
+        opacity 250ms linear;
 }
 
 .portfolio__item:focus {
@@ -385,9 +411,9 @@ header {
 }
 
 .portfolio__img:hover,
-.portfolio__itm:focus .portfolio__img {
+.portfolio__item:focus .portfolio__img {
     transform: scale(1.2);
-    opacity: .75;
+    opacity: .5;
 }
 
 
@@ -399,7 +425,7 @@ header {
     text-align: center;
     padding: 2.5em 0;
     font-size: var(--fs-h3);
-    font-weight: var(--fw-bold);
+
 }
 
 .footer a { 
@@ -434,4 +460,18 @@ header {
 
 .social-list__link {
     padding: .5em;
+}
+
+/* Individual portfolio item styles */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
