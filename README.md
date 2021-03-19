@@ -1,4 +1,3 @@
 # PersonalSite
-Files for my personal site
-jackeast23.github.io
+Files for a static portfolio template site that was built for practice
 Built using HTML, CSS, and some JavaScript
